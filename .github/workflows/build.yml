@@ -1,0 +1,29 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v3
+
+    - name: Instalar .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' # o el que uses
+
+    - name: Restaurar dependencias
+      run: dotnet restore
+
+    - name: Compilar
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Ejecutar tests
+      run: dotnet test --no-restore --verbosity normal
