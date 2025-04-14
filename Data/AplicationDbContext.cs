@@ -17,7 +17,6 @@ namespace UsersApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configuraciones adicionales del modelo
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.Id);

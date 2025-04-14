@@ -64,7 +64,7 @@ namespace UsersApi.Controllers
                 .Take(pageSize)
                 .ToListAsync();
 
-            // Eliminar la contraseña de la respuesta por seguridad
+            // Eliminar la contraseña de la respuesta 
             foreach (var usuario in usuarios)
             {
                 usuario.Contraseña = null;
